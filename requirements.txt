@@ -1,0 +1,7 @@
+# Resume Analyzer - Dependencies
+flask
+scikit-learn
+nltk
+PyPDF2
+python-docx
+fpdf2

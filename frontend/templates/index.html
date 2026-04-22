@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}Resume Analyzer - AI-Powered Resume Analysis{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" id="hero-section">
+    <div class="hero-bg-effects">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+    </div>
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Analyze Your Resume
+            <span class="hero-title-accent">with AI Precision</span>
+        </h1>
+        <p class="hero-subtitle">
+            Upload your resume and get instant insights — skill extraction, quality scoring,
+            grammar corrections, and job description matching powered by machine learning.
+        </p>
+        <div class="hero-actions">
+            <a href="{{ url_for('resume.upload') }}" class="btn btn-primary btn-lg" id="hero-cta">
+                <span>Get Started</span>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Skills Detected</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">AI</span>
+                <span class="stat-label">Quality Scoring</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">PDF</span>
+                <span class="stat-label">Report Export</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section" id="features">
+    <div class="section-container">
+        <h2 class="section-title">Powerful Analysis Features</h2>
+        <p class="section-subtitle">Everything you need to perfect your resume</p>
+        <div class="features-grid">
+            <div class="feature-card" id="feature-skills">
+                <div class="feature-icon">🎯</div>
+                <h3>Skill Extraction</h3>
+                <p>Automatically identifies and categorizes technical and soft skills from your resume using NLP.</p>
+            </div>
+            <div class="feature-card" id="feature-quality">
+                <div class="feature-icon">📊</div>
+                <h3>Quality Scoring</h3>
+                <p>ML-powered classification rates your resume as Good, Average, or Poor with a confidence score.</p>
+            </div>
+            <div class="feature-card" id="feature-grammar">
+                <div class="feature-icon">✍️</div>
+                <h3>Grammar & Style</h3>
+                <p>Detects weak phrases, passive voice, and suggests impactful action verbs for stronger writing.</p>
+            </div>
+            <div class="feature-card" id="feature-match">
+                <div class="feature-icon">🔗</div>
+                <h3>JD Matching</h3>
+                <p>Compare your resume against any job description using TF-IDF cosine similarity scoring.</p>
+            </div>
+            <div class="feature-card" id="feature-suggestions">
+                <div class="feature-icon">💡</div>
+                <h3>Smart Suggestions</h3>
+                <p>Get actionable tips on length, missing sections, contact info, and quantifiable achievements.</p>
+            </div>
+            <div class="feature-card" id="feature-report">
+                <div class="feature-icon">📥</div>
+                <h3>PDF Report</h3>
+                <p>Download a comprehensive analysis report as a professionally formatted PDF document.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-section" id="how-it-works">
+    <div class="section-container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Three simple steps to a better resume</p>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Upload Resume</h3>
+                <p>Upload a PDF/DOCX file or paste your resume text directly into the editor.</p>
+            </div>
+            <div class="step-connector">→</div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>AI Analysis</h3>
+                <p>Our ML models analyze your resume for skills, quality, grammar, and more.</p>
+            </div>
+            <div class="step-connector">→</div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Get Results</h3>
+                <p>View your detailed dashboard and download the PDF report.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

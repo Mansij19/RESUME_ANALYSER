@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume Analyzer - AI-powered resume analysis tool with skill extraction, quality scoring, and job description matching.">
+    <title>{% block title %}Resume Analyzer{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('resume.home') }}" class="nav-logo">
+                <span class="logo-icon">📄</span>
+                <span class="logo-text">Resume<span class="logo-accent">Analyzer</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="{{ url_for('resume.home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('resume.upload') }}" class="nav-link nav-cta">Analyze Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-container">
+            {% for category, message in messages %}
+            <div class="flash-message flash-{{ category }}">
+                <span>{{ message }}</span>
+                <button class="flash-close" onclick="this.parentElement.remove()">×</button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2026 Resume Analyzer — Built with Python, Flask & Machine Learning</p>
+            <p class="footer-subtitle">Analyze. Improve. Succeed.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
