@@ -27,6 +27,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run app
+    - name: Run app (Smoke Test)
       run: |
-        python run.py
+        python run.py &
+        sleep 10
+        curl -I http://localhost:5000 || exit 1
+        kill $!
