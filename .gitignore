@@ -1,0 +1,21 @@
+# Virtual Environments
+venv/
+.venv/
+env/
+bin/
+lib/
+include/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# App specific
+uploads/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
