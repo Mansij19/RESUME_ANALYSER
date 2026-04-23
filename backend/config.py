@@ -8,7 +8,11 @@ import os
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # Upload settings
-UPLOAD_FOLDER = os.path.join(BASE_DIR, 'uploads')
+if os.environ.get('VERCEL'):
+    UPLOAD_FOLDER = '/tmp/uploads'
+else:
+    UPLOAD_FOLDER = os.path.join(BASE_DIR, 'uploads')
+
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB max file size
 ALLOWED_EXTENSIONS = {'pdf', 'docx', 'doc'}
 
