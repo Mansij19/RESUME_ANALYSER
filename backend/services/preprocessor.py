@@ -5,16 +5,28 @@ Cleans, tokenizes, and lemmatizes resume text for NLP processing.
 """
 
 import re
+import os
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-# Download required NLTK data (runs once, silent after first download)
-nltk.download('punkt', quiet=True)
-nltk.download('punkt_tab', quiet=True)
-nltk.download('stopwords', quiet=True)
-nltk.download('wordnet', quiet=True)
+# --- NLTK Setup for Vercel ---
+if os.environ.get('VERCEL'):
+    nltk_data_dir = '/tmp/nltk_data'
+    os.makedirs(nltk_data_dir, exist_ok=True)
+    nltk.data.path.append(nltk_data_dir)
+else:
+    nltk_data_dir = None
+
+# Download required NLTK data
+def setup_nltk():
+    """Download required NLTK data to the specified directory."""
+    for package in ['punkt', 'punkt_tab', 'stopwords', 'wordnet']:
+        nltk.download(package, download_dir=nltk_data_dir, quiet=True)
+
+setup_nltk()
+
 
 
 def clean_text(text):
