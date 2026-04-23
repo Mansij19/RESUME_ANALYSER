@@ -11,6 +11,10 @@ from backend.config import (
     UPLOAD_FOLDER, MAX_CONTENT_LENGTH, SECRET_KEY,
     TEMPLATE_FOLDER, STATIC_FOLDER
 )
+import streamlit as st
+
+st.title("My Project")
+st.write("Hello, this is my app")
 
 
 def create_app():
